@@ -12,7 +12,7 @@ const StageFiveFormSchema = (isArabicLanguage: boolean) => {
     const schema = {
         // tawuniya_quotation_recived: Yup.string().required(isArabicLanguage ? 'اسم العميل مطلوب' : "Please select quotation recived."),
         // tawuniya_quotation_recived: Yup.boolean().required().oneOf([0 , 1], 'Selecting the quotation field is required'),
-        // tawuniya_quotation_recived: Yup.string().required(),
+        // tawuniya_quotation_recived: Yup.string().required()
 
         // .min(1, !isArabicLanguage ? "Customer name is too short" : "اسم العميل قصير جدا")
         // .max(20, !isArabicLanguage ? "Customer name is too Long" : "اسم العميل طويل جدًا")
