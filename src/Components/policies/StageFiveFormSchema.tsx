@@ -18,15 +18,15 @@ const StageFiveFormSchema = (isArabicLanguage: boolean) => {
         // .max(20, !isArabicLanguage ? "Customer name is too Long" : "اسم العميل طويل جدًا")
         // .matches(/^[A-Za-z]+(?:[\s-][A-Za-z]+)*$/, isArabicLanguage ? 'يجب ألا يحتوي هذا الحقل على مسافة بيضاء أو أحرف خاصة أو أرقام' : 'This field should not contain white space, special character or digits')
 
-        tawuniya_quotation_amount: Yup.string().required(isArabicLanguage ? 'الحالة مطلوبة' : "Quotation Amount is required."),
-        tawuniya_proposal: Yup.string().required(),
-        tawuniya_comment: Yup.string()
+        quotation_amount: Yup.string().required(isArabicLanguage ? 'الحالة مطلوبة' : "Quotation Amount is required."),
+        proposal: Yup.string().required(),
+        comment: Yup.string()
             .min(4, !isArabicLanguage ? "Comment is too short" : "اسم العميل قصير جدا")
             .max(250, !isArabicLanguage ? "Comment is too Long" : "اسم العميل طويل جدًا").required(isArabicLanguage ? 'الحالة مطلوبة' : "Comment is required."),
-        tawuniya_note_to_the_customer: Yup.string()
+            note_to_the_customer: Yup.string()
             .min(4, !isArabicLanguage ? "Comment is too short" : "اسم العميل قصير جدا")
             .max(250, !isArabicLanguage ? "Comment is too Long" : "اسم العميل طويل جدًا").required(isArabicLanguage ? 'الحالة مطلوبة' : "Comment is required."),
-        tawuniya_additional_attachment: Yup.mixed().required('File is required').test(
+            additional_attachment: Yup.mixed().required('File is required').test(
             "fileSize",
             "File too large",
             (value:any) =>  value && value?.size <= FILE_SIZE
@@ -37,30 +37,7 @@ const StageFiveFormSchema = (isArabicLanguage: boolean) => {
             (value:any) => value && SUPPORTED_FORMATS.includes(value?.type)
           ),
         // .test("FILE_SIZE", "Uploaded file is too big.",  (value:any) => !value || (value && value?.size <= 10)).test("FILE_FORMAT", "Uploaded file has unsupported format.", value => !value), // || (value && SUPPORTED_FORMATS.includes(value.type))
-        tawuniya_release_quotation_to_customer: Yup.string().required(isArabicLanguage ? 'اسم العميل مطلوب' : "Please select release quotation to customer."),
-
-        // saudiBank_quotation_recived: Yup.string().required(),
-        saudiBank_comment: Yup.string()
-            .min(4, !isArabicLanguage ? "Comment is too short" : "اسم العميل قصير جدا")
-            .max(250, !isArabicLanguage ? "Comment is too Long" : "اسم العميل طويل جدًا").required(isArabicLanguage ? 'الحالة مطلوبة' : "Comment is required."),
-        saudiBank_note_to_the_customer: Yup.string()
-            .min(4, !isArabicLanguage ? "Comment is too short" : "اسم العميل قصير جدا")
-            .max(250, !isArabicLanguage ? "Comment is too Long" : "اسم العميل طويل جدًا").required(isArabicLanguage ? 'الحالة مطلوبة' : "Comment is required."),
-        saudiBank_additional_attachment: Yup.string().required(),
-        // saudiBank_release_quotation_to_customer: Yup.string().required(isArabicLanguage ? 'اسم العميل مطلوب' : "Please select release quotation to customer."),
-
-
-        // axaBank_quotation_recived: Yup.string().required(),
-        axaBank_quotation_amount: Yup.string().required(isArabicLanguage ? 'الحالة مطلوبة' : "Quotation Amount is required."),
-        axaBank_comment: Yup.string()
-            .min(4, !isArabicLanguage ? "Comment is too short" : "اسم العميل قصير جدا")
-            .max(250, !isArabicLanguage ? "Comment is too Long" : "اسم العميل طويل جدًا").required(isArabicLanguage ? 'الحالة مطلوبة' : "Comment is required."),
-        axaBank_proposal: Yup.string().required(),
-        axaBank_note_to_the_customer: Yup.string()
-            .min(4, !isArabicLanguage ? "Comment is too short" : "اسم العميل قصير جدا")
-            .max(250, !isArabicLanguage ? "Comment is too Long" : "اسم العميل طويل جدًا").required(isArabicLanguage ? 'الحالة مطلوبة' : "Comment is required."),
-        axaBank_additional_attachment: Yup.string().required(),
-        // axaBank_release_quotation_to_customer: Yup.string().required(isArabicLanguage ? 'اسم العميل مطلوب' : "Please select release quotation to customer."),
+        release_quotation_to_customer: Yup.string().required(isArabicLanguage ? 'اسم العميل مطلوب' : "Please select release quotation to customer."),
     }
     return schema;
 }

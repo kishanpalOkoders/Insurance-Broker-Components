@@ -9,6 +9,7 @@ import Contact from './Components/Insurer/Contact.web'
 import UploadAttachedment from './Components/Insurer/UploadAttachedment.web'
 import Insurer from './Insurer.web'
 import StageFive from './StageFive'
+import StageFiveNew from './StageFiveNew'
 
 const enumFormAction = {
   ADD: 'ADD',
@@ -46,7 +47,8 @@ function App() {
         </a>
       </header> */}
       {/* <Insurer formType={insurerFormType} changeEdit={changeEdit} /> */}
-      <StageFive />
+      {/* <StageFive /> */}
+      <StageFiveNew />
       {/* <div style={{ padding: '30px' }}>
         <InsurerOverview insuranceTypes={insuranceTypesData} />
       </div>

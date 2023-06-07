@@ -67,9 +67,9 @@ const FileUpload = (props: any) => {
     }
   });
 
-  const handleFileUpload = (e: any) => {
+  const handleFileUpload = async (e: any) => {
     setInput(e.target.files[0]);
-    props.onChange(e);
+    await props.onChange(e);
   };
 
   const downloadFile = async () => {

@@ -171,6 +171,7 @@ class StageFive extends Component<MyProps, MyState> {
             tawuniya_additional_attachment: '',
             tawuniya_note_to_the_customer: enumYesNO.YES,
             tawuniya_release_quotation_to_customer: '',
+            
             saudiBank_quotation_recived: enumYesNO.YES,
             saudiBank_comment: '',
             saudiBank_additional_attachment: '',
